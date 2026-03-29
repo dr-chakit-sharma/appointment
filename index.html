@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Chakit Sharma – MD Psychiatry | Jaipur</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --teal: #0d7377;
+    --teal-light: #14a98a;
+    --sage: #8fbcb0;
+    --cream: #f7f4ef;
+    --white: #ffffff;
+    --gold: #c9a84c;
+    --text: #1e2d3d;
+    --muted: #6b7c8f;
+    --border: rgba(13,115,119,0.15);
+    --wa-green: #25D366;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 70px;
+    background: rgba(10,22,40,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    color: var(--white);
+    letter-spacing: 0.03em;
+  }
+  .nav-brand span { color: var(--teal-light); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal-light); }
+  .nav-cta {
+    background: var(--teal);
+    color: white !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--teal-light) !important; color: white !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: white; border-radius: 2px; transition: 0.3s; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--navy) 0%, #0d2740 55%, #0a3050 100%);
+    padding: 100px 5% 60px;
+  }
+  .hero-bg-shape {
+    position: absolute; right: -5%; top: 0; bottom: 0;
+    width: 55%;
+    background: linear-gradient(135deg, rgba(13,115,119,0.18) 0%, rgba(20,169,138,0.08) 100%);
+    clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+    pointer-events: none;
+  }
+  .hero-circles {
+    position: absolute; pointer-events: none;
+  }
+  .hero-circles::before {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(13,115,119,0.15);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-ring 4s ease-in-out infinite;
+  }
+  .hero-circles::after {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    border: 1px solid rgba(13,115,119,0.08);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-ring 4s ease-in-out infinite 1s;
+  }
+  @keyframes pulse-ring {
+    0%, 100% { opacity: 0.3; transform: translate(-50%,-50%) scale(1); }
+    50% { opacity: 0.8; transform: translate(-50%,-50%) scale(1.03); }
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 580px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(13,115,119,0.2);
+    border: 1px solid rgba(13,115,119,0.4);
+    color: var(--teal-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.6s ease both;
+  }
+  .hero-badge::before { content: '🥇'; }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 5vw, 3.8rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+    animation: fadeInUp 0.6s ease 0.1s both;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--teal-light);
+    display: block;
+  }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.6s ease 0.2s both;
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.6s ease 0.25s both;
+  }
+
+  .hero-btns {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 0.6s ease 0.3s both;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.85rem 1.8rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+    color: white;
+    box-shadow: 0 8px 24px rgba(13,115,119,0.4);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(13,115,119,0.5); }
+  .btn-wa {
+    background: var(--wa-green);
+    color: white;
+    box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+  }
+  .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,0.4); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.3);
+  }
+  .btn-outline:hover { border-color: var(--teal-light); color: var(--teal-light); }
+
+  .hero-strip {
+    display: flex; flex-wrap: wrap; gap: 1.5rem;
+    animation: fadeInUp 0.6s ease 0.4s both;
+  }
+  .strip-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+  }
+  .strip-item span { font-size: 1rem; }
+
+  .hero-image-wrap {
+    position: absolute;
+    right: 5%; bottom: 0;
+    width: 420px; height: 90%;
+    z-index: 2;
+    display: flex; align-items: flex-end;
+  }
+  .hero-img-placeholder {
+    width: 100%; height: 85%;
+    background: linear-gradient(160deg, rgba(13,115,119,0.3) 0%, rgba(10,22,40,0.6) 100%);
+    border-radius: 20px 20px 0 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 1rem;
+    border: 1px solid rgba(13,115,119,0.3);
+    border-bottom: none;
+  }
+  .img-icon { font-size: 5rem; opacity: 0.6; }
+  .img-label { color: rgba(255,255,255,0.4); font-size: 0.8rem; letter-spacing: 0.05em; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 5%;
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 0;
+  }
+  .stat {
+    flex: 1; min-width: 160px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem;
+    padding: 0.75rem 2rem;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--teal);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 90px 5%; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(13,115,119,0.08);
+    border: 1px solid rgba(13,115,119,0.2);
+    color: var(--teal);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-title em { color: var(--teal); font-style: italic; }
+  .section-desc {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 560px;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-card {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d2740 100%);
+    border-radius: 24px;
+    padding: 3rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-card::before {
+    content: '';
+    position: absolute; top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(13,115,119,0.2);
+  }
+  .about-card::after {
+    content: '';
+    position: absolute; bottom: -30px; left: -30px;
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    background: rgba(20,169,138,0.1);
+  }
+  .dr-avatar {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    position: relative; z-index: 1;
+    border: 3px solid rgba(255,255,255,0.15);
+  }
+  .dr-name-card {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    position: relative; z-index: 1;
+    margin-bottom: 0.25rem;
+  }
+  .dr-degree-card {
+    color: var(--teal-light);
+    font-size: 0.85rem;
+    font-weight: 500;
+    position: relative; z-index: 1;
+    margin-bottom: 1.5rem;
+  }
+  .credential-items {
+    display: flex; flex-direction: column; gap: 0.75rem;
+    position: relative; z-index: 1;
+  }
+  .cred-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+  }
+  .cred-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+  .float-badge {
+    position: absolute;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(201,168,76,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .float-badge.top-right { top: -12px; right: -12px; }
+  .float-badge.bottom-left { bottom: 30px; left: -20px; }
+
+  .about-intro {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+  .highlight-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .hl-item {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 1rem;
+    background: var(--cream);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .hl-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    background: rgba(13,115,119,0.1);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hl-text strong {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.15rem;
+  }
+  .hl-text span { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── SERVICES ── */
+  #services { background: var(--cream); }
+  .services-header { text-align: center; margin-bottom: 3.5rem; }
+  .services-header .section-desc { margin: 0 auto; }
+
+  .conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+  .condition-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.25rem 1rem;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .condition-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(13,115,119,0.12);
+  }
+  .condition-card .c-icon { font-size: 1.8rem; }
+  .condition-card .c-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+
+  .specialized-title {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+  .specialized-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .spec-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 1.75rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+    transition: all 0.25s ease;
+  }
+  .spec-card:hover {
+    border-color: var(--teal);
+    box-shadow: 0 12px 32px rgba(13,115,119,0.1);
+  }
+  .spec-icon {
+    width: 48px; height: 48px; flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(13,115,119,0.1), rgba(20,169,138,0.1));
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+  }
+  .spec-info strong {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--navy);
+    margin-bottom: 0.3rem;
+  }
+  .spec-info p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── WHY CHOOSE ── */
+  #why { background: var(--white); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .why-list { display: flex; flex-direction: column; gap: 1.25rem; }
+  .why-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.25rem;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    transition: all 0.2s;
+  }
+  .why-item:hover { border-color: var(--teal); background: white; }
+  .why-check {
+    width: 32px; height: 32px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .why-text strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+  .why-text p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+  .why-visual {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d2740 100%);
+    border-radius: 28px;
+    padding: 3rem;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-visual::before {
+    content: '🧠';
+    font-size: 8rem;
+    position: absolute;
+    top: -1rem; right: -1rem;
+    opacity: 0.07;
+  }
+  .why-visual h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+  .consult-types {
+    display: flex; flex-direction: column; gap: 0.75rem;
+  }
+  .consult-type {
+    background: rgba(13,115,119,0.2);
+    border: 1px solid rgba(13,115,119,0.3);
+    border-radius: 12px;
+    padding: 0.9rem 1.25rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  /* ── APPOINTMENT ── */
+  #appointment {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d2740 100%);
+    color: white;
+  }
+  #appointment .section-title { color: white; }
+  .appt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .contact-ways { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+  .contact-way {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.25rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.2s;
+  }
+  .contact-way:hover {
+    background: rgba(13,115,119,0.2);
+    border-color: rgba(13,115,119,0.5);
+  }
+  .cw-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .cw-icon.teal { background: rgba(13,115,119,0.3); }
+  .cw-icon.green { background: rgba(37,211,102,0.2); }
+  .cw-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+  .cw-value { font-weight: 600; font-size: 0.95rem; }
+
+  .appt-form {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2.5rem;
+  }
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--teal);
+    background: white;
+  }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-submit {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 8px 24px rgba(13,115,119,0.35);
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(13,115,119,0.5); }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--cream); }
+  .testi-header { text-align: center; margin-bottom: 3rem; }
+  .testi-header .section-desc { margin: 0 auto; }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .testi-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    position: relative;
+    transition: all 0.25s;
+  }
+  .testi-card:hover {
+    border-color: var(--teal);
+    box-shadow: 0 12px 32px rgba(13,115,119,0.1);
+    transform: translateY(-4px);
+  }
+  .testi-quote {
+    font-size: 3rem;
+    color: var(--teal);
+    opacity: 0.25;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .testi-text {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  .testi-author {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .testi-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .testi-name { font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+  .testi-loc { font-size: 0.78rem; color: var(--muted); }
+  .stars { color: #f59e0b; font-size: 0.85rem; }
+
+  /* ── BLOG ── */
+  #blog { background: var(--white); }
+  .blog-header { text-align: center; margin-bottom: 3rem; }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+  }
+  .blog-card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--cream);
+    transition: all 0.25s;
+    cursor: pointer;
+  }
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  }
+  .blog-thumb {
+    height: 160px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem;
+  }
+  .blog-thumb.t1 { background: linear-gradient(135deg, #e8f4f8, #c8e6f0); }
+  .blog-thumb.t2 { background: linear-gradient(135deg, #e8f4ee, #c8e6d8); }
+  .blog-thumb.t3 { background: linear-gradient(135deg, #f4e8f0, #e6c8d8); }
+  .blog-body { padding: 1.5rem; }
+  .blog-tag {
+    display: inline-block;
+    background: rgba(13,115,119,0.1);
+    color: var(--teal);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.6rem;
+  }
+  .blog-title-card {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+  .blog-excerpt { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+  .blog-center { text-align: center; }
+
+  /* ── QUIZ CTA ── */
+  .quiz-banner {
+    background: linear-gradient(135deg, rgba(13,115,119,0.08), rgba(20,169,138,0.06));
+    border: 1px solid rgba(13,115,119,0.2);
+    border-radius: 24px;
+    padding: 2.5rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 3rem auto 0;
+  }
+  .quiz-banner h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+  .quiz-banner p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* ── MAP / CONTACT ── */
+  #contact { background: var(--cream); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.25rem;
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    margin-bottom: 1rem;
+  }
+  .ci-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .ci-label { font-size: 0.75rem; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+  .ci-value { font-size: 0.95rem; font-weight: 600; color: var(--navy); line-height: 1.4; }
+  .ci-sub { font-size: 0.8rem; color: var(--muted); }
+
+  .map-embed {
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    height: 380px;
+    background: linear-gradient(135deg, #e8f4f8, #d4eae8);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1rem;
+    position: relative;
+  }
+  .map-placeholder-icon { font-size: 3rem; }
+  .map-placeholder-text { color: var(--muted); font-size: 0.9rem; text-align: center; }
+  .map-pin-badge {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -80%);
+    background: var(--teal);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(13,115,119,0.4);
+    white-space: nowrap;
+    animation: float 3s ease-in-out infinite;
+  }
+  .map-pin-badge::after {
+    content: '';
+    position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--teal);
+  }
+  @keyframes float {
+    0%,100% { transform: translate(-50%, -80%); }
+    50% { transform: translate(-50%, -90%); }
+  }
+
+  /* ── WA FLOAT ── */
+  .wa-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 999;
+    display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem;
+  }
+  .wa-tooltip {
+    background: white;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    font-size: 0.85rem;
+    color: var(--navy);
+    font-weight: 500;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.3s;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .wa-float:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
+  .wa-btn {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: var(--wa-green);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 8px 28px rgba(37,211,102,0.45);
+    text-decoration: none;
+    cursor: pointer;
+    animation: wa-pulse 2.5s ease-in-out infinite;
+    transition: transform 0.2s;
+  }
+  .wa-btn:hover { transform: scale(1.1); }
+  @keyframes wa-pulse {
+    0%,100% { box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
+    50% { box-shadow: 0 8px 40px rgba(37,211,102,0.7); }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    padding: 3rem 5% 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+  .footer-brand span { color: var(--teal-light); }
+  .footer-desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  .footer-col h4 {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col ul a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--teal-light); }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 1.5rem auto 0;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+  }
+  .footer-disclaimer {
+    max-width: 1200px;
+    margin: 1rem auto 0;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 0.9rem 1.25rem;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero-image-wrap { display: none; }
+    .about-grid,
+    .why-grid,
+    .appt-grid,
+    .contact-grid,
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .highlight-list { grid-template-columns: 1fr; }
+    .stat { min-width: 120px; padding: 0.75rem 1rem; }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 4%; }
+    section { padding: 60px 4%; }
+    .hero-title { font-size: 2.2rem; }
+    .hero-btns { flex-direction: column; }
+    .btn { justify-content: center; }
+    .stats-bar { flex-direction: column; gap: 0; }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat:last-child { border-bottom: none; }
+    .conditions-grid { grid-template-columns: repeat(3, 1fr); }
+    .testi-grid,
+    .blog-grid,
+    .specialized-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-brand">Dr. <span>Chakit Sharma</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#blog">Resources</a></li>
+    <li><a href="#appointment" class="nav-cta">Book Appointment</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-circles"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Gold Medalist · SMS Medical College</div>
+
+    <h1 class="hero-title">
+      Compassionate Care
+      <em>for a Healthier Mind</em>
+    </h1>
+
+    <p class="hero-sub">Specialist psychiatric care that combines evidence-based medicine with genuine human understanding.</p>
+    <div class="hero-name">Dr. Chakit Sharma — MD Psychiatry</div>
+
+    <div class="hero-btns">
+      <a href="#appointment" class="btn btn-primary">📅 Book Appointment</a>
+      <a href="https://wa.me/919680017274?text=Hello%20Doctor%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" class="btn btn-wa">💬 Chat on WhatsApp</a>
+      <a href="tel:9680017274" class="btn btn-outline">📞 Call Now</a>
+    </div>
+
+    <div class="hero-strip">
+      <div class="strip-item"><span>📍</span> Jaipur, Rajasthan</div>
+      <div class="strip-item"><span>📞</span> 9680017274</div>
+      <div class="strip-item"><span>🕒</span> Mon–Sat: 10am–7pm</div>
+    </div>
+  </div>
+
+  <div class="hero-image-wrap">
+    <div class="hero-img-placeholder">
+      <div class="img-icon">👨‍⚕️</div>
+      <div class="img-label">Add your professional photo here</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">5000+</div>
+    <div class="stat-label">Patients<br>Treated</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">8+</div>
+    <div class="stat-label">Years of<br>Experience</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">🥇</div>
+    <div class="stat-label">Gold<br>Medalist</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Confidential<br>Care</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2</div>
+    <div class="stat-label">Online &<br>In-person</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-card">
+        <div class="float-badge top-right">🥇 Gold Medalist</div>
+        <div class="dr-avatar">👨‍⚕️</div>
+        <div class="dr-name-card">Dr. Chakit Sharma</div>
+        <div class="dr-degree-card">MD Psychiatry · SMS Medical College, Jaipur</div>
+        <div class="credential-items">
+          <div class="cred-item"><span class="cred-icon">🎓</span> MD Psychiatry — Gold Medalist</div>
+          <div class="cred-item"><span class="cred-icon">🏥</span> SMS Medical College, Jaipur</div>
+          <div class="cred-item"><span class="cred-icon">🧠</span> Psychotherapy + Pharmacotherapy</div>
+          <div class="cred-item"><span class="cred-icon">💊</span> Complex Case Management</div>
+          <div class="cred-item"><span class="cred-icon">🌐</span> Online & In-clinic Consultations</div>
+        </div>
+        <div class="float-badge bottom-left">✅ Verified Specialist</div>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <div class="section-tag">About the Doctor</div>
+      <h2 class="section-title">Your Mental Health <em>Deserves Expert Care</em></h2>
+      <p class="about-intro">
+        Dr. Chakit Sharma is a highly trained psychiatrist with strong clinical expertise in managing complex mental health conditions. His patient-centered approach combines the latest in psychiatric medicine with genuine compassion — creating a safe, non-judgmental space where healing can truly begin.
+      </p>
+      <div class="highlight-list">
+        <div class="hl-item">
+          <div class="hl-icon">🧠</div>
+          <div class="hl-text">
+            <strong>Holistic Approach</strong>
+            <span>Mind, body & lifestyle treated together</span>
+          </div>
+        </div>
+        <div class="hl-item">
+          <div class="hl-icon">🔬</div>
+          <div class="hl-text">
+            <strong>Evidence-Based</strong>
+            <span>Latest research-backed treatments</span>
+          </div>
+        </div>
+        <div class="hl-item">
+          <div class="hl-icon">🔒</div>
+          <div class="hl-text">
+            <strong>100% Confidential</strong>
+            <span>Your privacy is always protected</span>
+          </div>
+        </div>
+        <div class="hl-item">
+          <div class="hl-icon">❤️</div>
+          <div class="hl-text">
+            <strong>Personalized Care</strong>
+            <span>Treatment plans tailored to you</span>
+          </div>
+        </div>
+      </div>
+      <a href="#appointment" class="btn btn-primary">Schedule a Consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="reveal">
+  <div class="services-header">
+    <div class="section-tag">Conditions & Services</div>
+    <h2 class="section-title">Identify What <em>You're Feeling</em></h2>
+    <p class="section-desc">You are not alone. Many conditions are highly treatable with the right support. Find yours below.</p>
+  </div>
+
+  <div class="conditions-grid">
+    <div class="condition-card"><div class="c-icon">😔</div><div class="c-name">Depression</div></div>
+    <div class="condition-card"><div class="c-icon">😰</div><div class="c-name">Anxiety Disorders</div></div>
+    <div class="condition-card"><div class="c-icon">🔁</div><div class="c-name">OCD</div></div>
+    <div class="condition-card"><div class="c-icon">💓</div><div class="c-name">Panic Disorder</div></div>
+    <div class="condition-card"><div class="c-icon">🌊</div><div class="c-name">Bipolar Disorder</div></div>
+    <div class="condition-card"><div class="c-icon">🧩</div><div class="c-name">Schizophrenia</div></div>
+    <div class="condition-card"><div class="c-icon">😴</div><div class="c-name">Sleep Disorders</div></div>
+    <div class="condition-card"><div class="c-icon">🍶</div><div class="c-name">Substance Use</div></div>
+    <div class="condition-card"><div class="c-icon">💑</div><div class="c-name">Sexual Dysfunction</div></div>
+    <div class="condition-card"><div class="c-icon">😤</div><div class="c-name">Anger Issues</div></div>
+    <div class="condition-card"><div class="c-icon">🎓</div><div class="c-name">Student Stress</div></div>
+    <div class="condition-card"><div class="c-icon">👴</div><div class="c-name">Geriatric Psychiatry</div></div>
+  </div>
+
+  <div class="specialized-title">Specialized Treatment Services</div>
+  <div class="specialized-grid">
+    <div class="spec-card">
+      <div class="spec-icon">🧠</div>
+      <div class="spec-info">
+        <strong>Cognitive Behavioral Therapy (CBT)</strong>
+        <p>Structured, short-term therapy for depression, anxiety, and more.</p>
+      </div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-icon">💊</div>
+      <div class="spec-info">
+        <strong>Medication Management</strong>
+        <p>Careful prescribing and monitoring for optimal outcomes.</p>
+      </div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-icon">🧑‍⚕️</div>
+      <div class="spec-info">
+        <strong>De-addiction Treatment</strong>
+        <p>Comprehensive programs for alcohol, drugs, and behavioral addictions.</p>
+      </div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-icon">❤️</div>
+      <div class="spec-info">
+        <strong>Relationship & Marital Counseling</strong>
+        <p>Rebuilding communication, trust, and emotional connection.</p>
+      </div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-icon">🎯</div>
+      <div class="spec-info">
+        <strong>Stress & Burnout Management</strong>
+        <p>Practical strategies for modern work-life balance challenges.</p>
+      </div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-icon">🧬</div>
+      <div class="spec-info">
+        <strong>Neuropsychiatric Consultation</strong>
+        <p>Specialist evaluation for complex neurological-psychiatric overlap cases.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section id="why" class="reveal">
+  <div class="why-grid">
+    <div>
+      <div class="section-tag">Why Choose Us</div>
+      <h2 class="section-title">A Practice Built <em>Around You</em></h2>
+      <p class="section-desc" style="margin-bottom: 2rem;">Every aspect of our care is designed to make your journey to mental wellness as effective, comfortable, and dignified as possible.</p>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div class="why-text">
+            <strong>Evidence-Based Treatment</strong>
+            <p>Protocols rooted in the latest psychiatric research and clinical guidelines.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div class="why-text">
+            <strong>Confidential & Non-Judgmental</strong>
+            <p>A completely safe space where you can speak openly without fear.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div class="why-text">
+            <strong>Quick Appointment Availability</strong>
+            <p>No long waits. Get the help you need when you need it most.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div class="why-text">
+            <strong>Online & Offline Consultations</strong>
+            <p>Flexible options to suit your schedule and comfort level.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">✓</div>
+          <div class="why-text">
+            <strong>Personalized Treatment Plans</strong>
+            <p>No one-size-fits-all. Your plan is tailored specifically for you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-visual">
+      <h3>Two Ways to<br>Connect with Dr. Sharma</h3>
+      <div class="consult-types">
+        <div class="consult-type">
+          <span style="font-size:1.4rem">🏥</span>
+          <div>
+            <div style="font-weight:600; margin-bottom:0.2rem">In-Clinic Consultation</div>
+            <div style="font-size:0.82rem; opacity:0.7">Personal visit · Jaipur clinic · Mon–Sat</div>
+          </div>
+        </div>
+        <div class="consult-type">
+          <span style="font-size:1.4rem">📱</span>
+          <div>
+            <div style="font-weight:600; margin-bottom:0.2rem">Online Video Consultation</div>
+            <div style="font-size:0.82rem; opacity:0.7">From the comfort of your home · Secure & private</div>
+          </div>
+        </div>
+        <div class="consult-type">
+          <span style="font-size:1.4rem">💬</span>
+          <div>
+            <div style="font-weight:600; margin-bottom:0.2rem">WhatsApp Quick Connect</div>
+            <div style="font-size:0.82rem; opacity:0.7">Message for queries & booking · Fast response</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <a href="#appointment" class="btn btn-primary" style="width:100%; justify-content:center;">Book Your Session →</a>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT -->
+<section id="appointment" class="reveal">
+  <div class="appt-grid">
+    <div class="appt-info">
+      <div class="section-tag" style="border-color:rgba(255,255,255,0.2); background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.8)">Book Appointment</div>
+      <h2 class="section-title" style="color:white">Ready to Take <em style="color:var(--teal-light)">the First Step?</em></h2>
+      <p style="color:rgba(255,255,255,0.6); line-height:1.8; margin-bottom:0.5rem">
+        Reaching out is the most important part. Whether you're coming for yourself or a loved one, we're here to help with warmth and professionalism.
+      </p>
+      <div class="contact-ways">
+        <a href="tel:9680017274" class="contact-way">
+          <div class="cw-icon teal">📞</div>
+          <div>
+            <div class="cw-label">Call directly</div>
+            <div class="cw-value">9680017274</div>
+          </div>
+        </a>
+        <a href="https://wa.me/919680017274?text=Hello%20Doctor%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" class="contact-way">
+          <div class="cw-icon green">💬</div>
+          <div>
+            <div class="cw-label">WhatsApp booking</div>
+            <div class="cw-value">Chat to schedule instantly</div>
+          </div>
+        </a>
+        <div class="contact-way" style="cursor:default">
+          <div class="cw-icon teal">🕒</div>
+          <div>
+            <div class="cw-label">OPD Hours</div>
+            <div class="cw-value">Mon–Sat: 10:00 AM – 7:00 PM</div>
+            <div class="cw-sub" style="color:rgba(255,255,255,0.4)">Sundays by appointment only</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form id="appointmentForm" class="appt-form">
+      <div class="form-title">Send an Appointment Request</div>
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input id="fullName" name="fullName" type="text" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input id="phone" name="phone" type="tel" placeholder="+91 XXXXX XXXXX" required>
+      </div>
+      <div class="form-group">
+        <label for="concern">Primary Concern</label>
+        <select id="concern" name="concern" required>
+          <option value="">Select a concern…</option>
+          <option>Depression / Low Mood</option>
+          <option>Anxiety / Worry</option>
+          <option>OCD / Repetitive Thoughts</option>
+          <option>Sleep Problems</option>
+          <option>Substance Use / De-addiction</option>
+          <option>Relationship Issues</option>
+          <option>Stress / Burnout</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="appointmentTime">Preferred Appointment Time</label>
+        <select id="appointmentTime" name="appointmentTime" required>
+          <option value="">Select a time slot…</option>
+          <option>Morning (10am–1pm)</option>
+          <option>Afternoon (1pm–4pm)</option>
+          <option>Evening (4pm–7pm)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Brief Message (Optional)</label>
+        <textarea id="message" name="message" placeholder="Anything you'd like to share before the appointment…"></textarea>
+      </div>
+      <button class="form-submit" type="submit">📅 Continue on WhatsApp</button>
+      <p id="formStatus" style="margin-top:0.9rem; font-size:0.85rem; color:#475569;"></p>
+    </form>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="reveal">
+  <div class="testi-header">
+    <div class="section-tag">Patient Stories</div>
+    <h2 class="section-title">Words from Those <em>Who Healed</em></h2>
+    <p class="section-desc">Every person who walks in carries a story. Here are a few who found their way forward.</p>
+  </div>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Dr. Sharma listened to every detail patiently. For the first time in years, I felt genuinely understood. The treatment plan he designed for me has changed my life completely.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">R</div>
+        <div>
+          <div class="testi-name">R.K. — Anonymous</div>
+          <div class="testi-loc">Jaipur · Depression treatment</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">I was skeptical about visiting a psychiatrist, but Dr. Chakit made me feel completely at ease. His approach is professional yet deeply human. Highly recommended.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">P</div>
+        <div>
+          <div class="testi-name">P.S. — Anonymous</div>
+          <div class="testi-loc">Jaipur · Anxiety &amp; OCD</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">My family member was struggling with substance use for years. Dr. Sharma's structured de-addiction program truly transformed the situation. We're forever grateful.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div>
+          <div class="testi-name">A.M. — Family member</div>
+          <div class="testi-loc">Jaipur · De-addiction treatment</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Online consultation was seamless and very professional. I appreciate the confidentiality and the thoughtful follow-up. The medication adjustments made a huge difference.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">S</div>
+        <div>
+          <div class="testi-name">S.G. — Anonymous</div>
+          <div class="testi-loc">Online consultation · Bipolar care</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">As a student, burnout was affecting my studies badly. Dr. Sharma helped me understand what I was going through and gave me practical tools to manage it. My results improved significantly.</p>
+      <div class="testi-author">
+        <div class="testi-avatar">M</div>
+        <div>
+          <div class="testi-name">M.V. — Student</div>
+          <div class="testi-loc">Jaipur · Academic stress &amp; burnout</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG / EDUCATION -->
+<section id="blog" class="reveal">
+  <div class="blog-header">
+    <div class="section-tag">Mental Health Education</div>
+    <h2 class="section-title">Learn, Understand, <em>Grow</em></h2>
+    <p class="section-desc">Knowledge is the first step to healing. Explore expert articles on common mental health topics.</p>
+  </div>
+
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-thumb t1">😔</div>
+      <div class="blog-body">
+        <div class="blog-tag">Depression</div>
+        <div class="blog-title-card">Signs of Depression You Should Not Ignore</div>
+        <p class="blog-excerpt">Persistent sadness is just one sign. Learn the less obvious symptoms that indicate it's time to seek help.</p>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb t2">😰</div>
+      <div class="blog-body">
+        <div class="blog-tag">Anxiety</div>
+        <div class="blog-title-card">How Anxiety Manifests in Your Body</div>
+        <p class="blog-excerpt">From racing heart to digestive issues — discover how chronic anxiety shows up physically and what to do about it.</p>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-thumb t3">😴</div>
+      <div class="blog-body">
+        <div class="blog-tag">Sleep Health</div>
+        <div class="blog-title-card">Sleep Problems & Mental Health: The Deep Link</div>
+        <p class="blog-excerpt">Poor sleep and mental illness are deeply interconnected. Here's how addressing one helps the other.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-banner reveal">
+    <h3>🧠 How's Your Mental Health?</h3>
+    <p>Take our anonymous self-assessment quiz for Depression or Anxiety. Results are private and confidential.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap">
+      <a href="#" class="btn btn-primary" style="padding:0.7rem 1.5rem">Depression Check →</a>
+      <a href="#" class="btn btn-outline" style="padding:0.7rem 1.5rem; border-color:var(--teal); color:var(--teal)">Anxiety Check →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / MAP -->
+<section id="contact" class="reveal">
+  <div style="text-align:center; margin-bottom:3rem">
+    <div class="section-tag">Location & Contact</div>
+    <h2 class="section-title">Find Us in <em>Jaipur</em></h2>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="ci-icon">📞</div>
+        <div>
+          <div class="ci-label">Phone</div>
+          <div class="ci-value">9680017274</div>
+          <div class="ci-sub">Available during OPD hours</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">💬</div>
+        <div>
+          <div class="ci-label">WhatsApp</div>
+          <div class="ci-value">+91 96800 17274</div>
+          <div class="ci-sub">Quick booking & queries</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label">Clinic Location</div>
+          <div class="ci-value">Jaipur, Rajasthan</div>
+          <div class="ci-sub">Exact address on confirmation</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">🕒</div>
+        <div>
+          <div class="ci-label">OPD Hours</div>
+          <div class="ci-value">Mon – Sat: 10:00 AM – 7:00 PM</div>
+          <div class="ci-sub">Sunday by prior appointment</div>
+        </div>
+      </div>
+      <a href="https://wa.me/919680017274?text=Hello%20Doctor%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" class="btn btn-wa" style="width:100%; justify-content:center; margin-top:1rem">💬 Open WhatsApp to Connect</a>
+    </div>
+
+    <div class="map-embed">
+      <div class="map-pin-badge">📍 Dr. Chakit Sharma · Jaipur</div>
+      <div class="map-placeholder-icon">🗺️</div>
+      <div class="map-placeholder-text">
+        Embed Google Maps here<br>
+        <small style="opacity:0.6">Replace this div with a &lt;iframe&gt; Google Maps embed</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Dr. <span>Chakit Sharma</span></div>
+      <p class="footer-desc">Gold Medalist MD Psychiatry from SMS Medical College, Jaipur. Providing compassionate, evidence-based psychiatric care with a deeply patient-centered approach.</p>
+      <div style="display:flex; gap:0.75rem">
+        <a href="https://wa.me/919680017274" target="_blank" class="btn btn-wa" style="padding:0.6rem 1.2rem; font-size:0.85rem">💬 WhatsApp</a>
+        <a href="tel:9680017274" class="btn btn-outline" style="padding:0.6rem 1.2rem; font-size:0.85rem">📞 Call</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About Dr. Sharma</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#testimonials">Patient Reviews</a></li>
+        <li><a href="#appointment">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Conditions Treated</h4>
+      <ul>
+        <li><a href="#services">Depression</a></li>
+        <li><a href="#services">Anxiety Disorders</a></li>
+        <li><a href="#services">OCD</a></li>
+        <li><a href="#services">Bipolar Disorder</a></li>
+        <li><a href="#services">De-addiction</a></li>
+        <li><a href="#services">Sleep Disorders</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-disclaimer">
+    ⚠️ <strong>Disclaimer:</strong> This website is for informational purposes only and does not constitute medical advice. Please consult Dr. Chakit Sharma directly for professional psychiatric evaluation and treatment. In case of emergency, call your local emergency services immediately.
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2025 Dr. Chakit Sharma. All rights reserved.</span>
+    <span>Privacy Policy · Terms of Use</span>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<div class="wa-float">
+  <div class="wa-tooltip">💬 Chat with Dr. Sharma</div>
+  <a href="https://wa.me/919680017274?text=Hello%20Doctor%2C%20I%20would%20like%20to%20book%20a%20consultation." target="_blank" class="wa-btn">💬</a>
+</div>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Mobile menu
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    if (links.style.display === 'flex') {
+      links.style.display = 'none';
+    } else {
+      links.style.cssText = 'display:flex; flex-direction:column; position:absolute; top:70px; left:0; right:0; background:rgba(10,22,40,0.98); padding:1.5rem 5%; gap:1rem; z-index:999;';
+    }
+  }
+
+  // Static WhatsApp-only submit
+  const WHATSAPP_NUMBER = '919680017274';
+  const appointmentForm = document.querySelector('#appointmentForm');
+  const formStatus = document.querySelector('#formStatus');
+
+  function validatePhone(value) {
+    const digits = value.replace(/\D/g, '');
+    return digits.length >= 10 && digits.length <= 13;
+  }
+
+  function buildWhatsappUrl(payload) {
+    const lines = [
+      'Hello Doctor, I would like to book an appointment.',
+      '',
+      `Name: ${payload.fullName}`,
+      `Phone: ${payload.phone}`,
+      `Concern: ${payload.concern}`,
+      `Preferred Time: ${payload.appointmentTime}`,
+      `Message: ${payload.message || 'N/A'}`
+    ];
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
+  }
+
+  if (appointmentForm) {
+    appointmentForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const payload = {
+        fullName: appointmentForm.fullName.value.trim(),
+        phone: appointmentForm.phone.value.trim(),
+        concern: appointmentForm.concern.value.trim(),
+        appointmentTime: appointmentForm.appointmentTime.value.trim(),
+        message: appointmentForm.message.value.trim(),
+      };
+
+      if (!payload.fullName || !payload.phone || !payload.concern || !payload.appointmentTime) {
+        formStatus.textContent = 'Please fill all required fields before continuing.';
+        formStatus.style.color = '#dc2626';
+        return;
+      }
+
+      if (!validatePhone(payload.phone)) {
+        formStatus.textContent = 'Please enter a valid mobile number.';
+        formStatus.style.color = '#dc2626';
+        return;
+      }
+
+      const whatsappUrl = buildWhatsappUrl(payload);
+      formStatus.textContent = 'Opening WhatsApp with your appointment details...';
+      formStatus.style.color = '#166534';
+      window.open(whatsappUrl, '_blank', 'noopener');
+    });
+  }
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Close mobile menu if open
+        const links = document.querySelector('.nav-links');
+        if (window.innerWidth < 900) links.style.display = 'none';
+      }
+    });
+  });
+</script>
+</body>
+</html>
